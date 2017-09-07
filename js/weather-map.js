@@ -57,6 +57,9 @@ function pullDays(data, daysNeeded){
     });
     return dayArray
 }
+function displayDay(data, dayStarts){
+
+}
 
 
 var mapOptions={
