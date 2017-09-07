@@ -1,15 +1,16 @@
+body {
+
+}
 .container {
     box-sizing: border-box;
     border-style: solid;
     border-color: darkgray;
-    border-width: 1px;
-    padding: 2%;
+    border-width: 0px;
     width: 80%;
-
 }
 #topContainer {
-    padding: 3%
-
+    padding: 3%;
+    padding-left: 5%;
 }
 #forecastBox {
     border-style: solid;
@@ -17,30 +18,30 @@
     border-width: 1px;
     background-color: #a8d9f9;
     border-radius: 15px;
-
-
 }
 .forecast {
+    font-family: "Helvetica Neue";
     border-style: solid;
     border-color: black;
     border-radius: 15px;
     border-width: 1px;
-    width: 30%;
+    width: 32%;
     padding: 2%;
     float: left;
     margin: 2px;
     background-color: #f2f2f2;
     box-sizing: border-box;
     text-align: center;
-
 }
 #mapCanvas {
-    border-width: 0px;
+    border-width: 1px;
     border-style: solid;
-    border-color: black;
-    width: 100%;
+    border-color: #a8d9f9;
+    width: 97%;
     height: 300px;
     margin-bottom: 20px;
+    border-radius: 15px;
+
 }
 h2 {
     font-family: Arial;
