@@ -1,11 +1,28 @@
 "use strict";
 
-var weatherAPI="04770abddfc55e155e46bb7e374c70eb"
+var weatherAPI="04770abddfc55e155e46bb7e374c70eb";
+
 
 $.get("http://api.openweathermap.org/data/2.5/weather", {
     APPID: weatherAPI,
-    q:     "San Antonio, TX"
+    q:     "San Antonio, TX",
+    units: "imperial"
+}).done(function(data) {
+    console.log("WEATHER");
+;    console.log(data);
+
+    /* Show the temp in Farenheight (imperial) and remove the decimal places*/
+
+    var maxTemp = data.main.temp_max;
+    maxTemp = maxTemp.toFixed(0);
+
+    var minTemp = data.main.temp_min;
+    minTemp = minTemp.toFixed(0);
+
+    $('#city').append(maxTemp + "<span>&#176; / </span>" + minTemp + "<span>&#176;</span>");
 });
+
+
 
 $.get("http://api.openweathermap.org/data/2.5/forecast", {
     APPID: weatherAPI,
@@ -13,6 +30,7 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
     lon:   -98.48527,
     units: "imperial"
 }).done(function(data) {
+    console.log("FORECAST");
     console.log(data);
 });
 
@@ -23,6 +41,7 @@ var mapOptions={
         lng:-98
     }
 };
+
 var map= new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
 
 var address = "North America";
