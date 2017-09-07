@@ -5,16 +5,19 @@
     border-width: 1px;
     padding: 2%;
     width: 80%;
-}
 
+}
+#topContainer {
+    padding: 3%
+
+}
 #forecastBox {
     border-style: solid;
     border-color: black;
     border-width: 1px;
-    padding-left: 25px;
-    padding-bottom: 20px;
     background-color: #a8d9f9;
     border-radius: 15px;
+
 
 }
 .forecast {
@@ -32,10 +35,21 @@
 
 }
 #mapCanvas {
-    border-width: 1px;
+    border-width: 0px;
     border-style: solid;
     border-color: black;
     width: 100%;
     height: 300px;
-
+    margin-bottom: 20px;
+}
+h2 {
+    font-family: Arial;
+    font-color: black;
+    font-size: 20pt;
+}
+h3 {
+    font-family: Arial;
+    font-color: black;
+    font-size: 15pt;
+    font-size: 15pt;
 }
