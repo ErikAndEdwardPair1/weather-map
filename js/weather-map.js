@@ -38,6 +38,8 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
     console.log(data);
     var daysNeeded=$('#atLocation').next().children().length;
     var dayStarts=pullDays(data, daysNeeded);
+    console.log(daysNeeded, dayStarts);
+    displayDay(data, dayStarts);
 
 });
 
@@ -57,9 +59,12 @@ function pullDays(data, daysNeeded){
     });
     return dayArray
 }
-function displayDay(data, dayStarts){
 
-}
+// function displayDay(data, dayStarts){
+//     $('#forecastRow').children().each( function (data, index) {
+//         $(data).append(list[dayStarts[0]].dt);
+//     });
+// }
 
 
 var mapOptions={
