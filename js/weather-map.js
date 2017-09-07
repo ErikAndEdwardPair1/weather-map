@@ -21,14 +21,12 @@ $.get("http://api.openweathermap.org/data/2.5/weather", {
 
     $('#city').append('<div><strong>'+maxTemp + "<span>&#176; / </span>" + minTemp + "<span>&#176;</span></strong></div>"+
      '<div><img src="http://openweathermap.org/img/w/'+ data.weather[0].icon +'.png"></div>'+
-        '<div><strong>'+data.weather[0].main +':</strong>'+ data.weather[0].description+'</div>' +
-        '<div><strong>Humidity:</strong>'+data.main.humidity+'</div>'+
-        '<div><strong>Wind:</strong>'+data.wind.speed+'</div>'+
-        '<div><strong>Pressure:</strong>'+data.main.pressure+'</div>'
+        '<div><strong>'+data.weather[0].main +': </strong>'+ data.weather[0].description+'</div>' +
+        '<div><strong>Humidity:</strong> '+data.main.humidity+'</div>'+
+        '<div><strong>Wind:</strong> '+data.wind.speed+'</div>'+
+        '<div><strong>Pressure:</strong> '+data.main.pressure+'</div>'
     );
 });
-
-
 
 $.get("http://api.openweathermap.org/data/2.5/forecast", {
     APPID: weatherAPI,
@@ -38,15 +36,26 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
 }).done(function(data) {
     console.log("FORECAST");
     console.log(data);
+    var daysNeeded=$('#atLocation').next().children().length;
+    var dayStarts=pullDays(data, daysNeeded);
+
 });
 
 //Functions for displaying the forecasts
-var daysNeeded=$('#atLocation').next().children().length;
+
 function pullDays(data, daysNeeded){
     //Pull the substrings of the 3 days we are tracking.
-    data.list.forEach(function (index) {
-        console.log(data.list[index].dt_txt);
+
+    var dayArray=[];
+    data.list.forEach(function (item, index) {
+        console.log(item.dt_txt);
+
+        if(item.dt_txt.indexOf('00:00:00')>0 && dayArray.length<daysNeeded){
+            console.log(index);
+            dayArray.push(index);
+        }
     });
+    return dayArray
 }
 
 
