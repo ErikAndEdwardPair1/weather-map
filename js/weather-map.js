@@ -40,6 +40,16 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
     console.log(data);
 });
 
+//Functions for displaying the forecasts
+var daysNeeded=$('#atLocation').next().children().length;
+function pullDays(data, daysNeeded){
+    //Pull the substrings of the 3 days we are tracking.
+    data.list.forEach(function (index) {
+        console.log(data.list[index].dt_txt);
+    });
+}
+
+
 var mapOptions={
     zoom:3,
     center:{
