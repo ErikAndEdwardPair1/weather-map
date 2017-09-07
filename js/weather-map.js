@@ -19,7 +19,13 @@ $.get("http://api.openweathermap.org/data/2.5/weather", {
     var minTemp = data.main.temp_min;
     minTemp = minTemp.toFixed(0);
 
-    $('#city').append(maxTemp + "<span>&#176; / </span>" + minTemp + "<span>&#176;</span>");
+    $('#city').append('<div><strong>'+maxTemp + "<span>&#176; / </span>" + minTemp + "<span>&#176;</span></strong></div>"+
+     '<div><img src="http://openweathermap.org/img/w/'+ data.weather[0].icon +'.png"></div>'+
+        '<div><strong>'+data.weather[0].main +':</strong>'+ data.weather[0].description+'</div>' +
+        '<div><strong>Humidity:</strong>'+data.main.humidity+'</div>'+
+        '<div><strong>Wind:</strong>'+data.wind.speed+'</div>'+
+        '<div><strong>Pressure:</strong>'+data.main.pressure+'</div>'
+    );
 });
 
 
