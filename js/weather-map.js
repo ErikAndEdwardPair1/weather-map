@@ -13,3 +13,24 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
 }).done(function(data) {
     console.log(data);
 });
+
+var mapOptions={
+    zoom:3,
+    center:{
+        lat:20,
+        lng:-98
+    }
+};
+var map= new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
+
+var address = "North America";
+
+var geocoder = new google.maps.Geocoder();
+
+geocoder.geocode({ "address": address }, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+    } else {
+        alert("Geocoding was not successful - STATUS: " + status);
+    }
+});
