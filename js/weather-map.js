@@ -5,7 +5,7 @@ $.get("http://api.openweathermap.org/data/2.5/weather", {
     q:     "San Antonio, TX"
 });
 
-$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+$.get("http://api.openweathermap.org/data/2.5/forecast", {
     APPID: "04770abddfc55e155e46bb7e374c70eb",
     lat:    29.423017,
     lon:   -98.48527,
