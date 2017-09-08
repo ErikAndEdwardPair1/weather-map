@@ -10,22 +10,22 @@
 <div class="container">
 
 	<div class="subContainer">
-		<div id="forecastRow">
 
-			<h2>The Weather Channel</h2><p id="thisDate">&nbsp;&nbsp;</p>
+
+			<h2>The Weather Channel</h2>
+			<p id="thisDate">&nbsp;&nbsp;</p>
 			<h3 id="atLocation">&nbsp;&nbsp;San Antonio, Texas</h3>
-
-			<div class="forecast column oneThird" id="city"></div>
-			<div class="forecast column oneThird" id="city_day2">CITY DAY 2</div>
-			<div class="forecast column oneThird" id="city_day3">CITY DAY 3</div>
-
-
-		</div>
-		<div class="subContainer">
-		<div id="mapCanvas"></div>
-		</div>
+		<a id="forecastRow"></a>
 
 	</div>
+			<div class="subContainer">
+				<div id="mapCanvas"></div>
+			</div>
+
+		</div>
+
+
+
 
 
 </div>
@@ -35,9 +35,9 @@
 <script src="js/weather-map.js"></script>
 <script src="https://newsapi.org/v1/articles?source=techcrunch&apiKey=b0448663a3694dcf9ebd224839a158a2"></script>
 <script>
-	 "use strict";
-   var date = new Date($.now());
-   $('#thisDate').append(date);
+    "use strict";
+    var date = new Date($.now());
+    $('#thisDate').append(date);
 </script>
 </body>
 </html>

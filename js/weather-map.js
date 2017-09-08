@@ -56,7 +56,7 @@ function buildDay(data, index){
     var minTemp = data.list[index].main.temp_min;
     minTemp = minTemp.toFixed(0);
 
-    $('#forecastRow').append('<div class="forecast"><div><strong>'+maxTemp + "<span>&#176; / </span>" + minTemp + "<span>&#176;</span></strong></div>"+
+    $('#forecastRow').append('<div class="forecast"><div><strong>'+ maxTemp + "<span>&#176; / </span>" + minTemp + "<span>&#176;</span></strong></div>"+
         '<div><img src="http://openweathermap.org/img/w/'+ data.list[index].weather[0].icon +'.png"></div>'+
         '<div><strong>'+data.list[index].weather[0].main +': </strong>'+ data.list[index].weather[0].description+'</div>' +
         '<div><strong>Humidity:</strong> '+data.list[index].main.humidity+'</div>'+

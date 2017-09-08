@@ -21,7 +21,7 @@ font-family: Verdana;
 #forecastRow {
     border-style: solid;
     border-color: black;
-    border-width: 1px;
+    border-width: 0px;
     background-color: #a8d9f9;
     border-radius: 15px;
 }
