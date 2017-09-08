@@ -37,34 +37,50 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
     console.log("FORECAST");
     console.log(data);
     var daysNeeded=$('#atLocation').next().children().length;
-    var dayStarts=pullDays(data, daysNeeded);
-    console.log(daysNeeded, dayStarts);
-    displayDay(data, dayStarts);
+    var dayStarts=pullDays(data);
+    // console.log(daysNeeded, dayStarts);
+    //use a for loop to iterate the following
+    for(var i=0;i<dayStarts.length;i++) {
+        buildDay(data, dayStarts[i]);
+    }
 
 });
 
 //Functions for displaying the forecasts
 
-function pullDays(data, daysNeeded){
+function buildDay(data, index){
+
+    var maxTemp = data.list[index].main.temp_max;
+    maxTemp = maxTemp.toFixed(0);
+
+    var minTemp = data.list[index].main.temp_min;
+    minTemp = minTemp.toFixed(0);
+
+    $('#forecastRow').append('<div></div><div><strong>'+maxTemp + "<span>&#176; / </span>" + minTemp + "<span>&#176;</span></strong></div>"+
+        '<div><img src="http://openweathermap.org/img/w/'+ data.list[index].weather[0].icon +'.png"></div>'+
+        '<div><strong>'+data.list[index].weather[0].main +': </strong>'+ data.list[index].weather[0].description+'</div>' +
+        '<div><strong>Humidity:</strong> '+data.list[index].main.humidity+'</div>'+
+        '<div><strong>Wind:</strong> '+data.list[index].wind.speed+'</div>'+
+        '<div><strong>Pressure:</strong> '+data.list[index].main.pressure+'</div></div>'
+    );
+
+}
+
+function pullDays(data){
     //Pull the substrings of the 3 days we are tracking.
 
     var dayArray=[];
     data.list.forEach(function (item, index) {
-        console.log(item.dt_txt);
+        // console.log(item.dt_txt);
 
-        if(item.dt_txt.indexOf('00:00:00')>0 && dayArray.length<daysNeeded){
-            console.log(index);
+        if(item.dt_txt.indexOf('00:00:00')>0){
+            // console.log(index);
             dayArray.push(index);
         }
     });
     return dayArray
 }
 
-// function displayDay(data, dayStarts){
-//     $('#forecastRow').children().each( function (data, index) {
-//         $(data).append(list[dayStarts[0]].dt);
-//     });
-// }
 
 
 var mapOptions={
