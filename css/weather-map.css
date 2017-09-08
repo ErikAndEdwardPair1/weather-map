@@ -1,5 +1,11 @@
 body {
-
+font-family: Verdana;
+}
+.titleContainer {
+    background-image: url("images/sky-grass-banner.jpg")
+    border-radius: 15px;
+    border width: 0px;
+    border-style: solid;
 }
 .container {
     box-sizing: border-box;
@@ -9,10 +15,10 @@ body {
     width: 80%;
 }
 #topContainer {
-    padding: 3%;
-    padding-left: 5%;
+    padding-bottom: 20px;
+    padding-left: 25px;
 }
-#forecastBox {
+#forecastRow {
     border-style: solid;
     border-color: black;
     border-width: 1px;
@@ -36,7 +42,7 @@ body {
 #mapCanvas {
     border-width: 1px;
     border-style: solid;
-    border-color: #a8d9f9;
+    border-color: black;
     width: 97%;
     height: 300px;
     margin-bottom: 20px;
